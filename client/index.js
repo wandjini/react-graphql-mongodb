@@ -9,6 +9,7 @@ import App from "./components/App";
 import SongList from "./components/SongList";
 import SongCreate from "./components/SongCreate";
 import SongDetail from "./components/SongDetail";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const client = new ApolloClient({
   dataIdFromObject: o => o.id
@@ -18,14 +19,13 @@ ReactDOM.render(
   
   <ApolloProvider client={client}>
    <div>
-    <Router history={hashHistory}>
-      <Route path="/" component={App}>
-        <IndexRoute component={SongList}/>
-       <Route path="/songs/new" component={SongCreate} />{" "}
-       <Route path="/songs/:id" component={SongDetail} />
-      </Route>
-    </Router>{" "}
-    
+      <Router history={hashHistory}>
+        <Route path="/" component={App}>
+          <IndexRoute component={SongList}/>
+          <Route path="/songs/new" component={SongCreate} />{" "}
+          <Route path="/songs/:id" component={SongDetail} />
+        </Route>
+      </Router>{" "}
     </div>
   </ApolloProvider>,
   document.getElementById("root")
